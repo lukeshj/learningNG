@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+
+  <div formGroupName="device">
+      Device Vendor : <br>
+      <input type="text" formControlName="deviceOEM"><br>
+      <div *ngIf="form.get('device').get('deviceOEM').touched">
+          <p *ngIf="form.get('device').get('deviceOEM').errors?.required">This field is required</p>
+          <p *ngIf="form.get('device').get('deviceOEM').errors?.minlength">
+            this field need minimum {{form.get('device').get('deviceOEM').errors?.minlength.requiredLength}} characters.
+          </p>
+      </div>
+      Device Category : <br>
+      <input type="text" formControlName="deviceType"><br>
+      Device IP Address : <br>
+      <input type="text" formControlName="deviceIP">
+  </div>
+
+  <div formGroupName="user">
+      Name : <br>
+      <input type="text" formControlName="name"><br>
+      age: <br>
+      <input type="text" formControlName="age"><br>
+    
+  </div>
+  
+</form>
+<!-- 
+{{
+  this.form.get('deviceOEM').errors | json
+}} -->
+ 
